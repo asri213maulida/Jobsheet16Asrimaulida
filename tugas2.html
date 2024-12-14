@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script lang="javascript">
+    </script>
+</head>
+<body>
+    
+        <script>
+            function calculator(operation) {
+                var bilangansatu = parseFloat(document.calform.bilangansatu.value);
+                var bilangandua = parseFloat(document.calform.bilangandua.value);
+                var hasil;
+
+                if (!Number.isInteger(bilangansatu) || !Number.isInteger(bilangandua)){
+                    alert("Bilangan tidak di temukan")
+                    return;
+                }
+        switch (operation) {
+            case '+':
+                hasil = bilangansatu + bilangandua;
+                alert("Hasil Penjumlahan = " + hasil);
+                break;
+            case '-':
+                hasil = bilangansatu - bilangandua;
+                alert("Hasil Pengurangan = " + hasil);
+                break;
+            case '*':
+                hasil = bilangansatu * bilangandua;
+                alert("Hasil Perkalian = " + hasil);
+                break;
+            case '/':
+                if (bilangandua === 0) {
+                    alert("Tidak dapat membagi dengan nol!");
+                } else {
+                    hasil = bilangansatu / bilangandua;
+                    alert("Hasil Pembagian = " + hasil);
+                }
+                break;
+                default:
+                alert("Operasi tidak valid!");
+        }
+
+        }
+            
+        </script>
+    
+    <form name="calform">
+        <h1 align="center">Membuat Calculator</h1>
+        <hr>
+        <pre align="center">
+            Bilangan 1 : <input type="text" size="5" name="bilangansatu">
+            Bilangan 2 : <input type="text" size="5" name="bilangandua"><br><br>
+            <hr>
+            <input type="button" value="+" onclick="calculator('+')"> <input type="button" value="-" onclick="calculator('-')"> <input type="button" value="*" onclick="calculator('*')"> <input type="button" value="/" onclick="calculator('/')"> <input type="reset" value="c">
+        </pre>
+
+    </form>
+</body>
+</html>

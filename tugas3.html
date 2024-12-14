@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script lang="javascript"></script>
+</head>
+<body>
+    <script>
+        function tampilkanData() {
+            
+            var nama = document.camaba.nama.value;
+            var alamat = document.camaba.alamat.value;
+            var asalSekolah = document.camaba.asalSekolah.value;
+            var jurusan = Array.from(document.querySelectorAll('input[name="jurusan"]:checked')).map(checkbox => checkbox.value);
+            var jenjang = document.querySelector('input[name="jenjang"]:checked') ? document.querySelector('input[name="jenjang"]:checked').value : "";
+            document.camaba.onama.value = nama;
+            document.camaba.oalamat.value = alamat;
+            document.camaba.oasalSekolah.value = asalSekolah;
+            document.camaba.ojurusan.value = jurusan.join(", ");
+            document.camaba.ojenjang.value = jenjang;
+        }
+        var output = document.getElementById("output");
+            output.innerHTML = "<h2>Data yang Dikirim:</h2>" +
+                               "<p><b>Nama Anda:</b> " + nama + "</p>" +
+                               "<p><b>Alamat:</b> " + alamat + "</p>" +
+                               "<p><b>Asal Sekolah:</b> " + asalSekolah + "</p>" +
+                               "<p><b>Jurusan Dipilih:</b> " + jurusan.join(", ") + "</p>" +
+                               "<p><b>Jenjang:</b> " + jenjang + "</p>"; 
+    </script>
+    <form name="camaba" >
+        <h1>Formulir Pendaftaran Calon Mahasiswa Baru</h1><br>
+        <hr>
+        <pre>
+            <b>Nama Anda    : <input type="text" size="11" name="nama"></b>
+            <b>Alamat       : <input type="text" size="25" name="alamat"></b>
+            <b>Asal Sekolah : <select name="asalSekolah" Size="1">
+                <option >SMA</option>
+                <option >SMK</option>
+                <option >MA</option>
+            </select></b>
+            <b>Jurusan Dipilih: <input type="checkbox" value="Teknik Informatika" name="jurusan" > Teknik Informatika
+                           : <input type="checkbox" value="Manajemen Informatik" name="jurusan" > Menejemen Informatik</b>
+            <b>Jenjang      : <input type="radio" name ="jenjang" value="diploma">Diploma <input type="radio" name ="jenjang" value="sarjana">Sarjana</b>
+
+            <input type="button" value="KIRIM" onclick="tampilkanData()"> <input type="reset" value="RESET">
+            <hr>
+                
+            
+        </pre>
+        <script>
+            if (!nama || !alamat ||  !asalSekolah || !jurusan || !jenjang) {
+        alert('Harap lengkapi semua field.');
+        return;
+      }
+
+            
+        </script>
+        
+        <b>Nama Anda    : <input type="text" name="onama" size="30"></b><br>
+        <b>Alamat       : <input type="text" name="oalamat" size="50"></b><br>
+        <b>Asal Sekolah : <input type="text" name="oasalSekolah" size="30"></b><br>
+        <b>Jurusan Dipilih: <input type="text"  name="ojurusan" size="50"></b><br>
+        <b>Jenjang      : <input type="text" name="ojenjang" size="20"></b><br>
+    </form>
+</body>
+</html>
